@@ -1,2 +1,2 @@
-// Package jetson is only available on Linux.
+// Package orangepi is only available on Linux.
 package orangepi
