@@ -1,13 +1,13 @@
 {
   "$schema": "https://dl.viam.dev/module.schema.json",
-  "module_id": "viam:orange-i",
+  "module_id": "viam:orange-pi",
   "visibility": "public",
-  "url": "https://github.com/viam-modules/orange-i",
-  "description": "Go module for orange-i orangepi board, compatible with Viam",
+  "url": "https://github.com/viam-modules/orange-pi",
+  "description": "Go module for orange-pi orangepi board, compatible with Viam",
   "models": [
     {
       "api": "rdk:component:board",
-      "model": "viam:orange-i:orangepi"
+      "model": "viam:orange-pi:orangepi"
     }
   ],
   "build": {
@@ -15,5 +15,5 @@
     "path": "bin/module.tar.gz",
     "arch" : ["linux/arm64"]
   },
-  "entrypoint": "bin/orange-i"
+  "entrypoint": "bin/orange-pi"
 }

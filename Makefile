@@ -9,13 +9,13 @@ endif
 
 module: build
 	rm -f $(BIN_OUTPUT_PATH)/module.tar.gz
-	tar czf $(BIN_OUTPUT_PATH)/module.tar.gz $(BIN_OUTPUT_PATH)/orange-i meta.json
+	tar czf $(BIN_OUTPUT_PATH)/module.tar.gz $(BIN_OUTPUT_PATH)/orange-pi meta.json
 
 build: build-go
 
 build-go:
-	rm -f $(BIN_OUTPUT_PATH)/orange-i
-	go build -tags no_cgo,osusergo,netgo -ldflags="-extldflags=-static $(COMMON_LDFLAGS)"  -o $(BIN_OUTPUT_PATH)/orange-i main.go
+	rm -f $(BIN_OUTPUT_PATH)/orange-pi
+	go build -tags no_cgo,osusergo,netgo -ldflags="-extldflags=-static $(COMMON_LDFLAGS)"  -o $(BIN_OUTPUT_PATH)/orange-pi main.go
 
 tool-install:
 	GOBIN=`pwd`/$(TOOL_BIN) go install \

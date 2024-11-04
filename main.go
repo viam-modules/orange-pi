@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 
-	"orange-i/orangepi"
+	"orange-pi/orangepi"
 
 	"go.viam.com/rdk/components/board"
 	"go.viam.com/rdk/logging"
@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	utils.ContextualMain(mainWithArgs, module.NewLoggerFromArgs("orange-i"))
+	utils.ContextualMain(mainWithArgs, module.NewLoggerFromArgs("orange-pi"))
 }
 
 func mainWithArgs(ctx context.Context, args []string, logger logging.Logger) error {

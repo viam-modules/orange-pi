@@ -1,4 +1,4 @@
-module orange-i
+module orange-pi
 
 go 1.23.0
 

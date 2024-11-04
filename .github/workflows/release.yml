@@ -42,10 +42,10 @@ jobs:
 
     - name: Build and package
       run: |
-        canon --profile orange-i
+        canon --profile orange-pi
         TARGET_OS=${{ matrix.platform }} TARGET_ARCH=${{ matrix.arch }} make module
 
-    - name: Upload orange-i module to registry
+    - name: Upload orange-pi module to registry
       uses: viamrobotics/upload-module@main
       with:
         meta-path: meta.json

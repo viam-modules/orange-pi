@@ -1,6 +1,6 @@
-# [`orange-i` module](https://github.com/viam-modules/orange-i)
+# [`orange-pi` module](https://github.com/viam-modules/orange-pi)
 
-This [orange-i module](https://app.viam.com/module/viam/orange-i) implements an [Orange Pi Zero2](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2.html), [Orange Pi Zero 2W](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2W.html) or [OrangePi 3 LTS](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/orange-pi-3-LTS.html) using the [`rdk:component:board` API](https://docs.viam.com/appendix/apis/components/board/).
+This [orange-pi module](https://app.viam.com/module/viam/orange-pi) implements an [Orange Pi Zero2](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2.html), [Orange Pi Zero 2W](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2W.html) or [OrangePi 3 LTS](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/orange-pi-3-LTS.html) using the [`rdk:component:board` API](https://docs.viam.com/appendix/apis/components/board/).
 
 ## Setup
 
@@ -18,11 +18,11 @@ First, follow the installation guide for your specific Orange Pi board:
 ## Configure your orangepi board
 
 Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
-[Add board / orange-i:orangepi to your machine](https://docs.viam.com/configure/#components).
+[Add board / orange-pi:orangepi to your machine](https://docs.viam.com/configure/#components).
 
 ### Attributes
 
-The following attributes are available for `viam:orange-i:orangepi` boards:
+The following attributes are available for `viam:orange-pi:orangepi` boards:
 
 | Attribute | Type | Required? | Description |
 | --------- | ---- | --------- | ----------  |
@@ -33,11 +33,11 @@ For instructions on implementing analogs, see [Analogs configuration](#Analogs-c
 
 ## Example configuration
 
-### `viam:orange-i:orangepi`
+### `viam:orange-pi:orangepi`
 ```json
   {
-    "name": "<your-orange-i-orangepi-board-name>",
-    "model": "viam:orange-i:orangepi",
+    "name": "<your-orange-pi-orangepi-board-name>",
+    "model": "viam:orange-pi:orangepi",
     "type": "board",
     "namespace": "rdk",
     "attributes": {},
@@ -90,8 +90,8 @@ The following attributes are available for `analogs`:
 {
   "components": [
     {
-      "name": "<your-orange-i-orangepi-board-name>",
-      "model": "viam:orange-i:orangepi",
+      "name": "<your-orange-pi-orangepi-board-name>",
+      "model": "viam:orange-pi:orangepi",
       "type": "board",
       "namespace": "rdk",
       "attributes": {
@@ -152,8 +152,8 @@ The following attributes are available for `digital_interrupts`:
 {
   "components": [
     {
-      "name": "<your-orange-i-orangepi-board-name>",
-      "model": "viam:orange-i:orangepi",
+      "name": "<your-orange-pi-orangepi-board-name>",
+      "model": "viam:orange-pi:orangepi",
       "type": "board",
       "namespace": "rdk",
       "attributes": {

@@ -15,8 +15,8 @@ import (
 
 const modelName = "orangepi"
 
-// Model for viam supported orange-i orangepi board.
-var Model = resource.NewModel("viam", "orange-i", "orangepi")
+// Model for viam supported orange-pi orangepi board.
+var Model = resource.NewModel("viam", "orange-pi", "orangepi")
 
 func init() {
 	gpioMappings, err := genericlinux.GetGPIOBoardMappings(modelName, boardInfoMappings)
