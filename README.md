@@ -1,6 +1,16 @@
 # [`orange-i` module](https://github.com/viam-modules/orange-i)
 
-This [orange-i module](https://app.viam.com/module/viam/orange-i) implements a orange-i [orangepi board](<LINK TO HARDWARE>), used for <DESCRIPTION> using the [`rdk:component:board` API](https://docs.viam.com/appendix/apis/components/board/).
+This [orange-i module](https://app.viam.com/module/viam/orange-i) implements an [Orange Pi Zero2](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2.html), [Orange Pi Zero 2W](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-2W.html) or [OrangePi 3 LTS](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/orange-pi-3-LTS.html) using the [`rdk:component:board` API](https://docs.viam.com/appendix/apis/components/board/).
+
+## Setup
+
+First, follow the installation guide for your specific Orange Pi board:
+
+- For an Orange Pi Zero2: follow the [Orange Pi Zero2 installation guide](https://docs.viam.com/installation/prepare/orange-pi-zero2/).
+- For an Orange Pi 3 LTS, follow the [Orange Pi 3 LTS installation guide](https://docs.viam.com/installation/prepare/orange-pi-3-lts/).
+
+> [!NOTE]
+> There is no setup guide available for the Orange Pi Zero 2W. If you have one of these boards, you can image it with [an Ubuntu image](https://drive.google.com/drive/folders/1g806xyPnVFyM8Dz_6wAWeoTzaDg3PH4Z) to prepare it for running `viam-server`.
 
 > [!NOTE]
 > Before configuring your board, you must [create a machine](https://docs.viam.com/cloud/machines/#add-a-new-machine).
@@ -10,13 +20,6 @@ This [orange-i module](https://app.viam.com/module/viam/orange-i) implements a o
 Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
 [Add board / orange-i:orangepi to your machine](https://docs.viam.com/configure/#components).
 
-On the new component panel, copy and paste the following attribute template into your board's attributes field:
-
-```json
-{
-  <ATTRIBUTES>
-}
-```
 > [!NOTE]
 > For more information, see [Configure a Machine](https://docs.viam.com/configure/).
 
@@ -24,11 +27,12 @@ On the new component panel, copy and paste the following attribute template into
 
 The following attributes are available for `viam:orange-i:orangepi` boards:
 
-<EXAMPLE !!>
 | Attribute | Type | Required? | Description |
 | --------- | ---- | --------- | ----------  |
-| `i2c_bus` | string | **Required** | The index of the I<sup>2</sup>C bus on the board that the board is wired to. |
-| `i2c_address` | string | Optional | Default: `0x77`. The [I<sup>2</sup>C device address](https://learn.adafruit.com/i2c-addresses/overview) of the board. |
+| `analogs` | object | Optional | Attributes of any pins that can be used as analog-to-digital converter (ADC) inputs. |
+| `digital_interrupts` | object | Optional | Any digital interrupts's pin number and name. |
+
+For instructions on implementing analogs, see [Analogs configuration](#Analogs-configuration). For instructions on implementing digital interrupts, see [Digital interrupt configuration](#Digital-interrupt-configuration).
 
 ## Example configuration
 
@@ -39,8 +43,7 @@ The following attributes are available for `viam:orange-i:orangepi` boards:
       "model": "viam:orange-i:orangepi",
       "type": "board",
       "namespace": "rdk",
-      "attributes": {
-      },
+      "attributes": {},
       "depends_on": []
   }
 ```
