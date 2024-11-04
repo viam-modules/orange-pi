@@ -36,12 +36,12 @@ For instructions on implementing analogs, see [Analogs configuration](#Analogs-c
 ### `viam:orange-i:orangepi`
 ```json
   {
-     "name": "<your-orange-i-orangepi-board-name>",
-      "model": "viam:orange-i:orangepi",
-      "type": "board",
-      "namespace": "rdk",
-      "attributes": {},
-      "depends_on": []
+    "name": "<your-orange-i-orangepi-board-name>",
+    "model": "viam:orange-i:orangepi",
+    "type": "board",
+    "namespace": "rdk",
+    "attributes": {},
+    "depends_on": []
   }
 ```
 
@@ -90,9 +90,10 @@ The following attributes are available for `analogs`:
 {
   "components": [
     {
-      "model": "pi",
-      "name": "your-board",
+      "name": "<your-orange-i-orangepi-board-name>",
+      "model": "viam:orange-i:orangepi",
       "type": "board",
+      "namespace": "rdk",
       "attributes": {
         "analogs": [
           {
@@ -151,8 +152,8 @@ The following attributes are available for `digital_interrupts`:
 {
   "components": [
     {
-      "name": "<your-up-upboard-board-name>",
-      "model": "viam:up:upboard",
+      "name": "<your-orange-i-orangepi-board-name>",
+      "model": "viam:orange-i:orangepi",
       "type": "board",
       "namespace": "rdk",
       "attributes": {
