@@ -20,9 +20,6 @@ First, follow the installation guide for your specific Orange Pi board:
 Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [machine](https://docs.viam.com/fleet/machines/) in the [Viam app](https://app.viam.com/).
 [Add board / orange-i:orangepi to your machine](https://docs.viam.com/configure/#components).
 
-> [!NOTE]
-> For more information, see [Configure a Machine](https://docs.viam.com/configure/).
-
 ### Attributes
 
 The following attributes are available for `viam:orange-i:orangepi` boards:
