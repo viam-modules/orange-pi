@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 
-	"orange-pi/orangepi"
+	"github.com/viam-modules/orange-pi/orangepi"
 
 	"go.viam.com/rdk/components/board"
 	"go.viam.com/rdk/logging"
