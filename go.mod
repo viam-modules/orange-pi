@@ -1,4 +1,4 @@
-module orange-pi
+module github.com/viam-modules/orange-pi
 
 go 1.23.0
 
