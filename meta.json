@@ -7,7 +7,9 @@
   "models": [
     {
       "api": "rdk:component:board",
-      "model": "viam:orange-pi:orangepi"
+      "model": "viam:orange-pi:orangepi",
+      "markdown_link": "README.md#configure-your-orangepi-board",
+      "short_description": "board model for orange pi Zero2, orange pi Zero 2W, and orange pi 3 LTS"
     }
   ],
   "build": {
