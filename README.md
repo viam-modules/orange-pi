@@ -20,6 +20,35 @@ Navigate to the [**CONFIGURE** tab](https://docs.viam.com/configure/) of your [m
 
 ## Configure your orangepi board
 
+### Example configuration
+```json
+{}
+```
+
+### Example configuration with optional analogs and digital interrupts
+```json
+  {
+    "analogs": [
+      {
+      "name": "current",
+      "pin": "1",
+      "spi_bus": "1",
+      "chip_select": "0"
+      }
+    ],
+      "digital_interrupts": [
+      {
+        "name": "your-interrupt-1",
+        "pin": "15"
+      },
+      {
+        "name": "your-interrupt-2",
+        "pin": "16"
+      }
+    ]
+  }
+```
+
 ### Attributes
 
 The following attributes are available for `viam:orange-pi:orangepi` boards:
@@ -29,21 +58,7 @@ The following attributes are available for `viam:orange-pi:orangepi` boards:
 | `analogs` | object | Optional | Attributes of any pins that can be used as analog-to-digital converter (ADC) inputs. |
 | `digital_interrupts` | object | Optional | Any digital interrupts's pin number and name. |
 
-For instructions on implementing analogs, see [Analogs configuration](#Analogs-configuration). For instructions on implementing digital interrupts, see [Digital interrupt configuration](#Digital-interrupt-configuration).
 
-### Example configuration
-
-### `viam:orange-pi:orangepi`
-```json
-  {
-    "name": "<your-orange-pi-orangepi-board-name>",
-    "model": "viam:orange-pi:orangepi",
-    "type": "board",
-    "namespace": "rdk",
-    "attributes": {},
-    "depends_on": []
-  }
-```
 ### Analogs configuration
 An [analog-to-digital converter](https://www.electronics-tutorials.ws/combination/analogue-to-digital-converter.html) (ADC) takes a continuous voltage input (analog signal) and converts it to an discrete integer output (digital signal).
 
@@ -77,36 +92,6 @@ The following attributes are available for `analogs`:
 | `average_over_ms` | int | Optional | Duration in milliseconds over which the rolling average of the analog input should be taken. |
 |`samples_per_sec` | int | Optional | Sampling rate of the analog input in samples per second. |
 
-### Example configuration
-
-```json {class="line-numbers linkable-line-numbers"}
-{
-  "components": [
-    {
-      "name": "<your-orange-pi-orangepi-board-name>",
-      "model": "viam:orange-pi:orangepi",
-      "type": "board",
-      "namespace": "rdk",
-      "attributes": {
-        "analogs": [
-          {
-            "name": "current",
-            "pin": "1",
-            "spi_bus": "1",
-            "chip_select": "0"
-          },
-          {
-            "name": "pressure",
-            "pin": "0",
-            "spi_bus": "1",
-            "chip_select": "0"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 ### Digital interrupt configuration
 [Interrupts](https://en.wikipedia.org/wiki/Interrupt) are a method of signaling precise state changes.
@@ -137,33 +122,6 @@ The following attributes are available for `digital_interrupts`:
 | ---- | ---- | --------- | ----------- |
 |`name` | string | **Required** | Your name for the digital interrupt. |
 |`pin`| string | **Required** | The pin number of the board's GPIO pin that you wish to configure the digital interrupt for. |
-
-### Example configuration
-
-```json {class="line-numbers linkable-line-numbers"}
-{
-  "components": [
-    {
-      "name": "<your-orange-pi-orangepi-board-name>",
-      "model": "viam:orange-pi:orangepi",
-      "type": "board",
-      "namespace": "rdk",
-      "attributes": {
-        "digital_interrupts": [
-          {
-            "name": "your-interrupt-1",
-            "pin": "15"
-          },
-          {
-            "name": "your-interrupt-2",
-            "pin": "16"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 
 ## Next Steps
