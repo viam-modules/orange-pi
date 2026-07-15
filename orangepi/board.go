@@ -19,10 +19,11 @@ const modelName = "orangepi"
 var Model = resource.NewModel("viam", "orange-pi", "orangepi")
 
 func init() {
-	gpioMappings, err := genericlinux.GetGPIOBoardMappings(modelName, boardInfoMappings)
+	logger := logging.NewLogger(modelName)
+	gpioMappings, err := genericlinux.GetGPIOBoardMappings(modelName, boardInfoMappings, logger)
 	var noBoardErr genericlinux.NoBoardFoundError
 	if errors.As(err, &noBoardErr) {
-		logging.Global().Debugw("error getting orangepi GPIO board mapping", "error", err)
+		logger.Debugw("error getting orangepi GPIO board mapping", "error", err)
 	}
 
 	resource.RegisterComponent(
