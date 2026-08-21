@@ -6,6 +6,7 @@ package orangepi
 import (
 	"context"
 	"errors"
+	"sync"
 
 	"go.viam.com/rdk/components/board"
 	"go.viam.com/rdk/components/board/genericlinux"
@@ -18,13 +19,28 @@ const modelName = "orangepi"
 // Model for viam supported orange-pi orangepi board.
 var Model = resource.NewModel("viam", "orange-pi", "orangepi")
 
-func init() {
-	gpioMappings, err := genericlinux.GetGPIOBoardMappings(modelName, boardInfoMappings)
-	var noBoardErr genericlinux.NoBoardFoundError
-	if errors.As(err, &noBoardErr) {
-		logging.Global().Debugw("error getting orangepi GPIO board mapping", "error", err)
-	}
+var (
+	gpioMappingsOnce   sync.Once
+	cachedGPIOMappings map[string]genericlinux.GPIOBoardMapping
+)
 
+// getGPIOMappings looks up the board's GPIO mappings once per process; every
+// call after the first returns the cached result, so only the first caller's
+// logger receives the lookup's log output, including the debug message when
+// no board is found.
+func getGPIOMappings(logger logging.Logger) map[string]genericlinux.GPIOBoardMapping {
+	gpioMappingsOnce.Do(func() {
+		var err error
+		cachedGPIOMappings, err = genericlinux.GetGPIOBoardMappings(modelName, boardInfoMappings, logger)
+		var noBoardErr genericlinux.NoBoardFoundError
+		if errors.As(err, &noBoardErr) {
+			logger.Debugw("error getting orangepi GPIO board mapping", "error", err)
+		}
+	})
+	return cachedGPIOMappings
+}
+
+func init() {
 	resource.RegisterComponent(
 		board.API,
 		Model,
@@ -35,7 +51,7 @@ func init() {
 				conf resource.Config,
 				logger logging.Logger,
 			) (board.Board, error) {
-				return genericlinux.NewBoard(ctx, conf, genericlinux.ConstPinDefs(gpioMappings), logger)
+				return genericlinux.NewBoard(ctx, conf, genericlinux.ConstPinDefs(getGPIOMappings(logger)), logger)
 			},
 		})
 }
